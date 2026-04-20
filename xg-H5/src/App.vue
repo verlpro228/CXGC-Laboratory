@@ -22,6 +22,10 @@
             {{ item.name }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </a>
+          <a href="https://github.com/verlpro228/CXGC-Laboratory" target="_blank" rel="noopener noreferrer"
+            class="github-nav-button" title="GitHub 仓库" aria-label="GitHub 仓库">
+            <i class="fab fa-github"></i>
+          </a>
           <button
             class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-900/20 transition-all hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-600/25"
             @click="openAdmin">
@@ -42,6 +46,10 @@
           <a v-for="item in navItems" :key="item.id" :href="'#' + item.id"
             class="text-slate-700 hover:text-blue-600 font-medium" @click.prevent="scrollToSection(item.id)">
             {{ item.name }}
+          </a>
+          <a href="https://github.com/verlpro228/CXGC-Laboratory" target="_blank" rel="noopener noreferrer"
+            class="github-mobile-button" title="GitHub 仓库" aria-label="GitHub 仓库">
+            <i class="fab fa-github"></i>
           </a>
           <button
             class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 font-bold text-white shadow-lg"
@@ -1252,6 +1260,42 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.github-nav-button,
+.github-mobile-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: #0f172a;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.github-nav-button {
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+}
+
+.github-mobile-button {
+  width: 100%;
+  height: 46px;
+  font-size: 22px;
+}
+
+.github-nav-button:hover,
+.github-mobile-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.35);
+  background: #0f172a;
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(59, 130, 246, 0.22);
 }
 
 /* 时间轴样式 */
