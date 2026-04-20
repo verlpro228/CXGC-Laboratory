@@ -1268,10 +1268,10 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(255, 255, 255, 0.72);
-  color: #0f172a;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  background: #0f172a;
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -1292,10 +1292,10 @@ onUnmounted(() => {
 .github-nav-button:hover,
 .github-mobile-button:hover {
   transform: translateY(-2px);
-  border-color: rgba(59, 130, 246, 0.35);
-  background: #0f172a;
-  color: #fff;
-  box-shadow: 0 14px 34px rgba(59, 130, 246, 0.22);
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.86);
+  color: #0f172a;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
 }
 
 /* 时间轴样式 */
