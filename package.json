@@ -1,0 +1,13 @@
+{
+  "name": "innovation-engineering-center-static",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:subprojects": "npm install --prefix xg-H5 && npm install --prefix xg-admin",
+    "build:h5": "npm run build --prefix xg-H5",
+    "build:admin": "npm run build --prefix xg-admin",
+    "build": "npm run install:subprojects && npm run build:h5 && npm run build:admin && node scripts/compose-vercel-output.mjs",
+    "dev:h5": "npm run dev --prefix xg-H5",
+    "dev:admin": "npm run dev --prefix xg-admin"
+  }
+}
