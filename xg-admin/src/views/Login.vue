@@ -1,5 +1,10 @@
 <template>
   <el-row class="container">
+    <button class="home-return-button" type="button" title="返回首页" aria-label="返回首页" @click="goToH5Home">
+      <el-icon>
+        <ArrowLeft />
+      </el-icon>
+    </button>
 
     <!-- 流动背景层 -->
     <div class="flow-background">
@@ -63,10 +68,11 @@
 <script setup>
 import { login } from '../api/index'
 import { reactive, ref } from 'vue'
-import { UserFilled, Lock } from '@element-plus/icons-vue'
+import { ArrowLeft, UserFilled, Lock } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import ParticleEffect from '../components/ParticleEffect.vue'
+import { goToH5Home } from '../utils/navigation'
 
 const router = useRouter()
 
@@ -193,6 +199,42 @@ const submitForm = async (formEl) => {
   height: 100%;
   position: relative;
   overflow: hidden;
+
+  .home-return-button {
+    position: fixed;
+    top: clamp(18px, 4vw, 34px);
+    left: clamp(18px, 4vw, 34px);
+    z-index: 5;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.96);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 14px 35px rgba(25, 40, 95, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    .el-icon {
+      font-size: 23px;
+    }
+
+    &:hover {
+      transform: translateX(-2px) translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.62);
+      background: rgba(255, 255, 255, 0.26);
+      box-shadow: 0 18px 42px rgba(25, 40, 95, 0.3), 0 0 22px rgba(255, 255, 255, 0.18);
+    }
+
+    &:active {
+      transform: scale(0.94);
+    }
+  }
 
   // 流动背景容器
   .flow-background {

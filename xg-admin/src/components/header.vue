@@ -5,6 +5,11 @@
       <el-icon class="icon" size="25" @click="store.changeCollapse">
         <Operation />
       </el-icon>
+      <button class="home-button" type="button" title="返回首页" aria-label="返回首页" @click="goToH5Home">
+        <el-icon>
+          <HomeFilled />
+        </el-icon>
+      </button>
       <div class="text">
         <p>前端技术中心</p>
       </div>
@@ -31,9 +36,10 @@
 import { computed } from 'vue'
 import { logout } from '../api/index'
 import { useRouter } from 'vue-router'
-import { Operation } from '@element-plus/icons-vue'
+import { HomeFilled, Operation } from '@element-plus/icons-vue'
 import { isCollapse } from '../store/isCollapse'
 import { ElMessageBox } from 'element-plus'
+import { goToH5Home } from '../utils/navigation'
 
 const router = useRouter()
 const store = isCollapse()
@@ -103,6 +109,40 @@ const handleClick = (command) => {
       color: #fff;
       // text-shadow: 水平偏移 垂直偏移 模糊距离 颜色;
       cursor: pointer;
+    }
+
+    .home-button {
+      position: absolute;
+      left: 54px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.92);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 26px rgba(28, 40, 90, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+
+      .el-icon {
+        font-size: 20px;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.58);
+        background: rgba(255, 255, 255, 0.24);
+        box-shadow: 0 14px 34px rgba(28, 40, 90, 0.26), 0 0 18px rgba(255, 255, 255, 0.16);
+      }
+
+      &:active {
+        transform: scale(0.94);
+      }
     }
 
     .text {
