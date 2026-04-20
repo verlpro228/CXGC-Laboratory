@@ -22,6 +22,12 @@
             {{ item.name }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
           </a>
+          <button
+            class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-900/20 transition-all hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-600/25"
+            @click="openAdmin">
+            <i class="fas fa-user-shield"></i>
+            <span>进入后台</span>
+          </button>
         </div>
 
         <button class="md:hidden text-slate-700 text-2xl" @click="toggleMobileMenu">
@@ -37,6 +43,12 @@
             class="text-slate-700 hover:text-blue-600 font-medium" @click.prevent="scrollToSection(item.id)">
             {{ item.name }}
           </a>
+          <button
+            class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-5 py-3 font-bold text-white shadow-lg"
+            @click="openAdmin">
+            <i class="fas fa-user-shield"></i>
+            <span>进入后台</span>
+          </button>
         </div>
       </div>
     </nav>
@@ -878,6 +890,13 @@ const navbar = ref(null)
 // 切换移动端菜单
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const openAdmin = () => {
+  mobileMenuOpen.value = false
+  const { protocol, hostname, port, origin } = window.location
+  const isLocalH5Dev = ['localhost', '127.0.0.1'].includes(hostname) && port === '3000'
+  window.location.href = isLocalH5Dev ? `${protocol}//${hostname}:5173/` : `${origin}/admin/`
 }
 
 // 滚动到指定部分
