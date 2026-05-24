@@ -10,7 +10,7 @@
 
 项目采用“页面层尽量不动，数据层替换为本地伪接口”的方式完成改造。前台和后台仍然通过统一的数据结构进行交互，便于后续重新接入真实后端接口。
 
-## 在线演示：https://cxgc-laboratory.vercel.app/
+在线演示：https://cxgc-laboratory.velpro.xyz
 
 ## 核心特性
 
